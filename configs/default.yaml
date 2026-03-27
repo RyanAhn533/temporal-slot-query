@@ -1,0 +1,55 @@
+# Bio-Aware Temporal Slot Query — Default Config
+
+model:
+  d_model: 128
+  num_slots: 8            # 5 events + 3 background
+  temporal_len: 10         # 1 second @ 10Hz
+  max_det: 20
+  num_patches: 16
+  num_classes: 80          # COCO
+  bio_dim: 14
+  scene_dim: 5
+  slot_iters: 3
+  sa_layers: 2
+  bio_gate: true
+  dropout: 0.1
+
+training:
+  epochs: 100
+  batch_size: 32
+  lr: 1e-4
+  weight_decay: 1e-5
+  scheduler: cosine
+  warmup_epochs: 5
+
+  # Loss weights
+  w_event: 1.0
+  w_state: 0.5
+  w_diversity: 0.1
+
+  # Data
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+data:
+  data_dir: data/
+  fps: 10
+  img_h: 480
+  img_w: 640
+
+  # Augmentation
+  aug_brightness: 0.2
+  aug_noise: 0.05
+  aug_dropout_det: 0.1     # 10% 확률로 검출 드롭
+
+inference:
+  device: cuda
+  fp16: true
+  batch_size: 1
+
+# Experiment tracking
+experiment:
+  name: tsq_v1
+  save_dir: checkpoints/
+  log_dir: logs/
