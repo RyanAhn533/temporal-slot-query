@@ -19,6 +19,8 @@
 <img src="https://img.shields.io/badge/States-3%20class-orange?style=flat-square" />
 <img src="https://img.shields.io/badge/FPS-10Hz%20Real--time-brightgreen?style=flat-square" />
 
+**Targets (not yet measured):** the Parameters / Latency badges above and every F1 / latency / parameter number in this README are design targets, not measured results; they will be replaced with measurements after training on K-MER simulator data (see the note under the Performance table).
+
 ---
 
 *Can a driver's heartbeat help detect a pedestrian crossing the road?*
@@ -362,6 +364,8 @@ We extend this to **event-centric** representations: each slot learns to special
 <td>~5ms ✅</td>
 </tr>
 </table>
+
+> *Targets (not yet measured) — platform latencies above are estimates, not benchmark results.*
 
 ---
 
